@@ -1,8 +1,11 @@
   
 import os
+import openai
 from flask_admin import Admin
 from .models import db, User
 from flask_admin.contrib.sqla import ModelView
+
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 def setup_admin(app):
     app.secret_key = os.environ.get('FLASK_APP_KEY', 'sample key')
